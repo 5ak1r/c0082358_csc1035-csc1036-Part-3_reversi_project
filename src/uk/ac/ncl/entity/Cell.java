@@ -121,7 +121,6 @@ public class Cell {
             int temp_score = 0;
             Cell cell = IsOnBoard(this.getRow() + dir[0], this.getColumn() + dir[1]) ? cells[this.getRow() + dir[0]][this.getColumn() + dir[1]] : null;
             if (cell != null
-                    && cell.getValue() != CellStatus.EMPTY
                     && cell.getValue() == opponent) {
                 while (true){
                     cell = IsOnBoard(cell.row + dir[0],cell.column + dir[1]) ? cells[cell.row + dir[0]][cell.column + dir[1]] :  null;
