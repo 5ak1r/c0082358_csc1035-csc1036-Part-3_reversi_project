@@ -105,8 +105,16 @@ public class MainPanel extends JFrame {
         moveChecker.flipPieces(opponent, OPPONENTS_CELL_STATUS);
         moveChecker.removeMoves(grayCells);
         grayCells = moveChecker.findPotentialMoves(PLAYERS_CELL_STATUS);
-        if (grayCells.size() == 0)
+        if (grayCells.size() == 0) {
             missedMoves += moveChecker.findPotentialMoves(OPPONENTS_CELL_STATUS).size() > 0 ? 1 : 2;
+            opponent = moveChecker.generateOpponent(OPPONENTS_CELL_STATUS);
+            if (opponent == null){
+                missedMoves += 1;
+                CheckNextMove(moveChecker);
+            }
+            MoveOpponent(opponent);
+            JOptionPane.showMessageDialog(this, PLAYERS_CELL_STATUS +" cannot move");
+        }
         CheckNextMove(moveChecker);
     }
 
@@ -126,6 +134,14 @@ public class MainPanel extends JFrame {
                 setUpTimer(taskPerformer);
             } else {
                 missedMoves += 1;
+                grayCells = moveChecker.findPotentialMoves(PLAYERS_CELL_STATUS);
+                if (grayCells.size() == 0) {
+                    missedMoves += 1;
+                }
+                CheckNextMove(moveChecker);
+                JOptionPane.showMessageDialog(this, OPPONENTS_CELL_STATUS +" cannot move");
+
+
             }
         }
         else{
