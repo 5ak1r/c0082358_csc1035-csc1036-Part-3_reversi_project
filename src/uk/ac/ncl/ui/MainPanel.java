@@ -136,7 +136,7 @@ public class MainPanel extends JFrame {
 
     /**
      *
-     * Applies the move, if the clicked cell is corresponds to a potential move
+     * Applies the move, if the clicked cell corresponds to a potential move
      *
      * @param tempEl
      */
