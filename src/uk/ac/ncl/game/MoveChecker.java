@@ -92,8 +92,8 @@ public class MoveChecker {
      * @param colour - new colour
      */
     public void colourPieces(ArrayList<Cell> cells, CellStatus colour) {
-        for (int i = 0; i < cells.size() - 1; i++){
-            cells.get(i).setValue(colour);
+        for (Cell cell : cells) {
+            cell.setValue(colour);
         }
     }
 
